@@ -9,8 +9,9 @@ before_install:
 install:
 - bundle install --path=vendor/bundle --binstubs=vendor/bin
 script:
-- bundle exec rake "$ACTION" CONFIGURATION="Debug" DESTINATION="$DESTINATION" TESTCASE="$TESTCASE" coverage:coveralls
-  coverage:coveralls
+- bundle exec rake "$ACTION" CONFIGURATION="Release" DESTINATION="$DESTINATION" TESTCASE="$TESTCASE"
+after_success:
+- coverage:coveralls
 branches:
   only:
   - master
@@ -32,25 +33,13 @@ env:
   - ACTION=test:iphonesimulator DESTINATION='name=iPad 2,OS=9.3' TESTCASE='ScrollTests/testCircularScrolling'
   - ACTION=test:iphonesimulator DESTINATION='name=iPad 2,OS=9.3' TESTCASE='SelectionTests'
   - ACTION=test:iphonesimulator DESTINATION='name=iPad Air 2,OS=10.3' TESTCASE='MergedCellTests'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Air 2,OS=10.3' TESTCASE='ScrollTests/testTableViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Air 2,OS=10.3' TESTCASE='ScrollTests/testColumnHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Air 2,OS=10.3' TESTCASE='ScrollTests/testRowHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Air 2,OS=10.3' TESTCASE='ScrollTests/testColumnAndRowHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Air 2,OS=10.3' TESTCASE='ScrollTests/testCircularScrolling'
+  - ACTION=test:iphonesimulator DESTINATION='name=iPad Air 2,OS=10.3' TESTCASE='ScrollTests'
   - ACTION=test:iphonesimulator DESTINATION='name=iPad Air 2,OS=10.3' TESTCASE='SelectionTests'
   - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (9.7-inch),OS=10.3' TESTCASE='MergedCellTests'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (9.7-inch),OS=10.3' TESTCASE='ScrollTests/testTableViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (9.7-inch),OS=10.3' TESTCASE='ScrollTests/testColumnHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (9.7-inch),OS=10.3' TESTCASE='ScrollTests/testRowHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (9.7-inch),OS=10.3' TESTCASE='ScrollTests/testColumnAndRowHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (9.7-inch),OS=10.3' TESTCASE='ScrollTests/testCircularScrolling'
+  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (9.7-inch),OS=10.3' TESTCASE='ScrollTests'
   - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (9.7-inch),OS=10.3' TESTCASE='SelectionTests'
   - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (12.9-inch),OS=10.3' TESTCASE='MergedCellTests'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (12.9-inch),OS=10.3' TESTCASE='ScrollTests/testTableViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (12.9-inch),OS=10.3' TESTCASE='ScrollTests/testColumnHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (12.9-inch),OS=10.3' TESTCASE='ScrollTests/testRowHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (12.9-inch),OS=10.3' TESTCASE='ScrollTests/testColumnAndRowHeaderViewScrolling'
-  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (12.9-inch),OS=10.3' TESTCASE='ScrollTests/testCircularScrolling'
+  - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (12.9-inch),OS=10.3' TESTCASE='ScrollTests'
   - ACTION=test:iphonesimulator DESTINATION='name=iPad Pro (12.9-inch),OS=10.3' TESTCASE='SelectionTests'
   global:
   - LANG=en_US.UTF-8
